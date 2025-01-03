@@ -76,7 +76,7 @@ window.onload = () => {
 	}
 	
 	class component {
-		constructor(name,weight,acceleration,onRoadTraction,offRoadTraction,miniTurbo,groundSpeed,waterSpeed,antiGravitySpeed,airSpeed,groundHandling,waterHandling,antiGravityHandling,airHandling,invincibility) {
+		constructor(name,weight,acceleration,onRoadTraction,offRoadTraction,miniTurbo,groundSpeed,waterSpeed,antiGravitySpeed,airSpeed,groundHandling,waterHandling,antiGravityHandling,airHandling,invincibility,type) {
 			this.name=name;
 			this.weight=weight;
 			this.acceleration=acceleration;
@@ -92,17 +92,17 @@ window.onload = () => {
 			this.antiGravityHandling=antiGravityHandling;
 			this.airHandling=airHandling;
 			this.invincibility=invincibility;
+			this.type=type;
 	  }
 	}
 	
 	class EnhancedComponent extends component {
-	  constructor(name, weight, acceleration, onRoadTraction, offRoadTraction, miniTurbo, groundSpeed, waterSpeed, antiGravitySpeed, airSpeed, groundHandling, waterHandling, antiGravityHandling, airHandling, invincibility, equalTo) {
-		super(name, weight, acceleration, onRoadTraction, offRoadTraction, miniTurbo, groundSpeed, waterSpeed, antiGravitySpeed, airSpeed, groundHandling, waterHandling, antiGravityHandling, airHandling,invincibility);
+	  constructor(name, weight, acceleration, onRoadTraction, offRoadTraction, miniTurbo, groundSpeed, waterSpeed, antiGravitySpeed, airSpeed, groundHandling, waterHandling, antiGravityHandling, airHandling, invincibility, type, equalTo) {
+		super(name, weight, acceleration, onRoadTraction, offRoadTraction, miniTurbo, groundSpeed, waterSpeed, antiGravitySpeed, airSpeed, groundHandling, waterHandling, antiGravityHandling, airHandling,invincibility,type);
 		this.equalTo = equalTo;
 	  }
 	}
-
-	
+		
 function ComponentsEqual(component1, component2) {
   // Check if all properties of component1 are equal to corresponding properties of component2
   return component1.weight === component2.weight &&
@@ -122,7 +122,7 @@ function ComponentsEqual(component1, component2) {
 }
 
 function createComponentFromJSONObject(jsonObj) {
-	let x = new EnhancedComponent("",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"");
+	let x = new EnhancedComponent("",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"","");
 	Object.assign(x, jsonObj);
 	return x;
 }
@@ -194,7 +194,7 @@ function printStatsFrom(constellation){
 function constellationToString(constellation){
 	let stats = "<p align='left'>";
 	stats += constellation.driver.name + " this is qual to: " + constellation.driver.equalTo + "<br>";
-	stats += constellation.body.name + " this is qual to: " + constellation.body.equalTo + "<br>";
+	stats += constellation.body.name + "(" + constellation.body.type + ")" + " this is qual to: " + constellation.body.equalTo + "<br>";
 	stats += constellation.tire.name + " this is qual to: " + constellation.tire.equalTo + "<br>";
 	stats += constellation.glider.name + " this is qual to: " + constellation.glider.equalTo + "<p p align='left'>";
 	stats += "Weight: " + (constellation.getWeight() * 0.25) + "<br>";
@@ -264,6 +264,7 @@ function compareComponents(components) {
         currentComponent.antiGravityHandling,
         currentComponent.airHandling,
 		currentComponent.invincibility,
+		currentComponent.type,
         equalTo
       )
     );
