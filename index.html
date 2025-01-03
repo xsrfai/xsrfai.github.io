@@ -22,15 +22,15 @@
 <h2>What do you wanna drive?</h2>
 <p>version 0.7</p>
 
-<select id="auswahl" name="auswahl" onchange="aktualisiereText()">
-	<option value="option0">Alle</option>
-	<option value="option1">Kart</option>
-	<option value="option2">Outward Drifting Bike</option>
-	<option value="option3">Inward Drifting Bike</option>
-	<option value="option4">Quad</option>
+<select id="vehicle" onchange="refreshInfo()">
+	<option value="all">Alle</option>
+	<option value="Kart">Kart</option>
+	<option value="Outward">Outward-Bike</option>
+	<option value="Inward">Inward-Bike</option>
+	<option value="ATV">ATV</option>
 </select>
 
-<p id="ausgabe">Bei der Suche werden alle Fahrzeugtypen berücksichtigt.</p>
+<p id="info">Bei der Suche werden alle Fahrzeugtypen berücksichtigt.</p>
 
 <form>
 <table align="center">
@@ -246,8 +246,7 @@ Weight
 <td>
 <button type="button" onclick='document.getElementById("factorWeight").value = document.getElementById("factorWeight").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultWeight"></p>
+<td id="resultWeight">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorWeight").value = parseFloat(document.getElementById("factorWeight").value) + 0.25'>+</button>
@@ -260,8 +259,7 @@ Acceleration
 <td>
 <button type="button" onclick='document.getElementById("factorAcceleration").value = document.getElementById("factorAcceleration").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultAcceleration"></p>
+<td id="resultAcceleration">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorAcceleration").value = parseFloat(document.getElementById("factorAcceleration").value) + 0.25'>+</button>
@@ -274,8 +272,7 @@ OnRoadTraction
 <td>
 <button type="button" onclick='document.getElementById("factorOnRoadTraction").value = document.getElementById("factorOnRoadTraction").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultOnRoadTraction"></p>
+<td id="resultOnRoadTraction">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorOnRoadTraction").value = parseFloat(document.getElementById("factorOnRoadTraction").value) + 0.25'>+</button>
@@ -288,8 +285,7 @@ OffRoadTraction
 <td>
 <button type="button" onclick='document.getElementById("factorOffRoadTraction").value = document.getElementById("factorOffRoadTraction").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultOffRoadTraction"></p>
+<td id="resultOffRoadTraction">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorOffRoadTraction").value = parseFloat(document.getElementById("factorOffRoadTraction").value) + 0.25'>+</button>
@@ -302,8 +298,7 @@ MiniTurbo
 <td>
 <button type="button" onclick='document.getElementById("factorMiniTurbo").value = document.getElementById("factorMiniTurbo").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultMiniTurbo"></p>
+<td id="resultMiniTurbo">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorMiniTurbo").value = parseFloat(document.getElementById("factorMiniTurbo").value) + 0.25'>+</button>
@@ -316,8 +311,7 @@ GroundSpeed
 <td>
 <button type="button" onclick='document.getElementById("factorGroundSpeed").value = document.getElementById("factorGroundSpeed").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultGroundSpeed"></p>
+<td id="resultGroundSpeed">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorGroundSpeed").value = parseFloat(document.getElementById("factorGroundSpeed").value) + 0.25'>+</button>
@@ -330,8 +324,7 @@ WaterSpeed
 <td>
 <button type="button" onclick='document.getElementById("factorWaterSpeed").value = document.getElementById("factorWaterSpeed").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultWaterSpeed"></p>
+<td id="resultWaterSpeed">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorWaterSpeed").value = parseFloat(document.getElementById("factorWaterSpeed").value) + 0.25'>+</button>
@@ -344,8 +337,7 @@ AntiGravitySpeed
 <td>
 <button type="button" onclick='document.getElementById("factorAntiGravitySpeed").value = document.getElementById("factorAntiGravitySpeed").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultAntiGravitySpeed"></p>
+<td id="resultAntiGravitySpeed">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorAntiGravitySpeed").value = parseFloat(document.getElementById("factorAntiGravitySpeed").value) + 0.25'>+</button>
@@ -358,8 +350,7 @@ AirSpeed
 <td>
 <button type="button" onclick='document.getElementById("factorAirSpeed").value = document.getElementById("factorAirSpeed").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultAirSpeed"></p>
+<td id="resultAirSpeed">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorAirSpeed").value = parseFloat(document.getElementById("factorAirSpeed").value) + 0.25'>+</button>
@@ -372,8 +363,7 @@ GroundHandling
 <td>
 <button type="button" onclick='document.getElementById("factorGroundHandling").value = document.getElementById("factorGroundHandling").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultGroundHandling"></p>
+<td id="resultGroundHandling">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorGroundHandling").value = parseFloat(document.getElementById("factorGroundHandling").value) + 0.25'>+</button>
@@ -386,8 +376,7 @@ WaterHandling
 <td>
 <button type="button" onclick='document.getElementById("factorWaterHandling").value = document.getElementById("factorWaterHandling").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultWaterHandling"></p>
+<td id="resultWaterHandling">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorWaterHandling").value = parseFloat(document.getElementById("factorWaterHandling").value) + 0.25'>+</button>
@@ -400,8 +389,7 @@ AntiGravityHandling
 <td>
 <button type="button" onclick='document.getElementById("factorAntiGravityHandling").value = document.getElementById("factorAntiGravityHandling").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultAntiGravityHandling"></p>
+<td id="resultAntiGravityHandling">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorAntiGravityHandling").value = parseFloat(document.getElementById("factorAntiGravityHandling").value) + 0.25'>+</button>
@@ -414,8 +402,7 @@ AirHandling
 <td>
 <button type="button" onclick='document.getElementById("factorAirHandling").value = document.getElementById("factorAirHandling").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultAirHandling"></p>
+<td id="resultAirHandling">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorAirHandling").value = parseFloat(document.getElementById("factorAirHandling").value) + 0.25'>+</button>
@@ -428,8 +415,7 @@ Invincibility
 <td>
 <button type="button" onclick='document.getElementById("factorInvincibility").value = document.getElementById("factorInvincibility").value - 0.25'>-</button>
 </td>
-<td>
-<p id="resultInvincibility"></p>
+<td id="resultInvincibility">
 </td>
 <td>
 <button type="button" onclick='document.getElementById("factorInvincibility").value = parseFloat(document.getElementById("factorInvincibility").value) + 0.25'>+</button>
