@@ -197,22 +197,22 @@ function constellationToString(constellation){
 	stats += constellation.body.name + "(" + constellation.body.type + ")" + " this is qual to: " + constellation.body.equalTo + "<br>";
 	stats += constellation.tire.name + " this is qual to: " + constellation.tire.equalTo + "<br>";
 	stats += constellation.glider.name + " this is qual to: " + constellation.glider.equalTo + "<p p align='left'>";
-	// stats += "Weight: " + (constellation.getWeight() * 0.25) + "<br>";
-	// stats += "acceleration: " + (constellation.getAcceleration() * 0.25) + "<br>";
-	// stats += "onRoadTraction: " + (constellation.getOnRoadTraction() * 0.25) + "<br>";
-	// stats += "offRoadTraction: " + (constellation.getOffRoadTraction() * 0.25) + "<br>";
-	// stats += "miniTurbo: " + (constellation.getMiniTurbo() * 0.25) + "<br>";
-	// stats += "groundSpeed: " + (constellation.getGroundSpeed() * 0.25) + "<br>";
-	// stats += "waterSpeed: " + (constellation.getWaterSpeed() * 0.25) + "<br>";
-	// stats += "antiGravitySpeed: " + (constellation.getAntiGravitySpeed() * 0.25) + "<br>";
-	// stats += "airSpeed: " + (constellation.getAirSpeed() * 0.25) + "<br>";
-	// stats += "groundHandling: " + (constellation.getGroundHandling() * 0.25) + "<br>";
-	// stats += "waterHandling: " + (constellation.getWaterHandling() * 0.25) + "<br>";
-	// stats += "antiGravityHandling: " + (constellation.getAntiGravityHandling() * 0.25) + "<br>";
-	// stats += "airHandling: " + (constellation.getAirHandling() * 0.25) + "<br>";
-	// stats += "Invincibility: " + (constellation.getInvincibility() * 0.25) + "<br>";
-	// stats += "</p>";
-	// stats += "Sum: " + getSumedValue(constellation);
+	stats += "Weight: " + (constellation.getWeight() * 0.25) + "<br>";
+	stats += "acceleration: " + (constellation.getAcceleration() * 0.25) + "<br>";
+	stats += "onRoadTraction: " + (constellation.getOnRoadTraction() * 0.25) + "<br>";
+	stats += "offRoadTraction: " + (constellation.getOffRoadTraction() * 0.25) + "<br>";
+	stats += "miniTurbo: " + (constellation.getMiniTurbo() * 0.25) + "<br>";
+	stats += "groundSpeed: " + (constellation.getGroundSpeed() * 0.25) + "<br>";
+	stats += "waterSpeed: " + (constellation.getWaterSpeed() * 0.25) + "<br>";
+	stats += "antiGravitySpeed: " + (constellation.getAntiGravitySpeed() * 0.25) + "<br>";
+	stats += "airSpeed: " + (constellation.getAirSpeed() * 0.25) + "<br>";
+	stats += "groundHandling: " + (constellation.getGroundHandling() * 0.25) + "<br>";
+	stats += "waterHandling: " + (constellation.getWaterHandling() * 0.25) + "<br>";
+	stats += "antiGravityHandling: " + (constellation.getAntiGravityHandling() * 0.25) + "<br>";
+	stats += "airHandling: " + (constellation.getAirHandling() * 0.25) + "<br>";
+	stats += "Invincibility: " + (constellation.getInvincibility() * 0.25) + "<br>";
+	stats += "</p>";
+	stats += "Sum: " + getSumedValue(constellation);
 	
 	return stats;
 }
